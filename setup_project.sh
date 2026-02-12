@@ -39,6 +39,19 @@ if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
 
     sed -i "s/\"warning\": [0-9]\+/\"warning\": $warning/" "$att_dir/Helpers/config.json"
     sed -i "s/\"failure\": [0-9]\+/\"failure\": $failure/" "$att_dir/Helpers/config.json"
+
+    echo ""
+    echo "-----------------------------------------"
+    echo "Attendance Thresholds update Succesfully"
+    echo "-----------------------------------------"
 fi
 
+# Validating the existence of python3 environment
 
+if python3 --version >/dev/null 2>&1; then
+	echo ""
+	echo "Python3 is installed: $(python3 --version)"
+else
+	echo ""
+	echo "Python3 is not available. Please install:"
+fi
