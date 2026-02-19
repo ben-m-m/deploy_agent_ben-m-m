@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-set -e
+set -e # exit the script incase of error in any command
 echo "Create parent directory attendance_tracker_{your name/version}."
 read -p "Enter directory suffix?:" verdir
 att_dir="attendance_tracker_$verdir"
