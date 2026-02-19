@@ -38,8 +38,8 @@ if [[ ! -s "$att_dir/Helpers/config.json" ]]; then
 cat > "$att_dir/Helpers/config.json" <<EOF
 {
     "thresholds": {
-        "warning": 95,
-        "failure": 70
+        "warning": 75,
+        "failure": 50
     },
     "run_mode": "live",
     "total_sessions": 15
