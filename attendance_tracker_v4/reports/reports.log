@@ -1,0 +1,5 @@
+--- Attendance Report Run: 2026-02-19 14:21:44.398023 ---
+[2026-02-19 14:21:44.398161] ALERT SENT TO alice@example.com: WARNING: Alice Johnson, your attendance is 93.3%. Please be careful.
+[2026-02-19 14:21:44.398262] ALERT SENT TO bob@example.com: URGENT: Bob Smith, your attendance is 46.7%. You will fail this class.
+[2026-02-19 14:21:44.398322] ALERT SENT TO charlie@example.com: URGENT: Charlie Davis, your attendance is 26.7%. You will fail this class.
+[2026-02-19 14:21:44.398375] ALERT SENT TO jose@example.com: URGENT: Joseph Case, your attendance is 33.3%. You will fail this class.
