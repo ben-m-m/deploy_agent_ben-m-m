@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 #
+set -e
 echo "Create parent directory attendance_tracker_{your name/version}."
 read -p "Enter directory suffix?:" verdir
 att_dir="attendance_tracker_$verdir"
@@ -9,7 +10,9 @@ att_dir="attendance_tracker_$verdir"
 clean_up() {
 	echo "Interupted process, closing now:"
 	tar -czvf "${att_dir}_archive.tar.gz" "$att_dir"
-	rm -rf "${att_dir}_archive.tar.gz"
+	rm -rf "${att_dir}"
+	echo "Incomplete directory archived as ${att_dir}_archive.tar.gz and removed."
+	exit 1
 }
 
 trap clean_up SIGINT
@@ -21,13 +24,13 @@ if [ -d "$att_dir" ]; then
 	echo "Directory and files already exist"
 	echo "----------------------------------"
 else
-	mkdir -p "$att_dir"
-	touch "$att_dir/attendance_checker.py"
-	mkdir -p "$att_dir/Helpers/"
-	touch "$att_dir/Helpers/assets.csv"
-	touch "$att_dir/Helpers/config.json"
-	mkdir -p "$att_dir/reports"
-	touch "$att_dir/reports/reports.log"
+	mkdir -p "$att_dir" || { echo "Error: Failed: You do not have permission or invalid location"; exit 1;}
+	touch "$att_dir/attendance_checker.py" || { echo "Error creating python file"; exit 1;}
+	mkdir -p "$att_dir/Helpers/" || { echo "Error creating Helpers directory"; exit 1;}
+	touch "$att_dir/Helpers/assets.csv" || { echo "Error creating assets.csv file"; exit 1;}
+	touch "$att_dir/Helpers/config.json" || { echo "Error creating config.json file"; exit 1;}
+	mkdir -p "$att_dir/reports" || { echo "Error creating reports directory"; exit 1;}
+	touch "$att_dir/reports/reports.log" || { echo "Error creating reports.log file"; exit 1;}
 fi
 
 #verify the json file exists and if not, creates it with default values
