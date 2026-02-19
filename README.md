@@ -48,6 +48,7 @@ attendance_tracker_<suffix>/
 - The script checks if python3 is installed.  Success is printed if found; if not a warning to install before running the python file is sent.
 
 # video run through.
+https://youtu.be/5fyXccMNV_k
 
 
 # sample file of file structure and default content given as attendance_tracker_v1
